@@ -82,14 +82,65 @@ Resultado esperado:
 1.23.5
 ```
 
-## Configuración de CUDA y cuDNN
+## Descargar e Instalar CUDA Toolkit
 
-TensorFlow 2.10 requiere:
+TensorFlow 2.10 requiere **CUDA Toolkit 11.2**.
 
-- CUDA Toolkit 11.2
-- cuDNN 8.1
+### Pasos de instalación:
 
-Estas versiones deben estar instaladas y configuradas en las variables de entorno del sistema.
+1. **Descargar CUDA Toolkit 11.2** desde NVIDIA:
+   - Ir a: https://developer.nvidia.com/cuda-11-2-0-download-archive
+   - Seleccionar:
+     - Sistema Operativo: Windows
+     - Arquitectura: x86_64
+     - Versión de Windows: Windows 10 o Windows 11
+     - Tipo de instalador: exe (local)
+   - Hacer clic en "Download"
+
+2. **Ejecutar el instalador** y seguir el asistente de instalación.
+
+3. **Verificar la instalación**:
+   ```bash
+   nvidia-smi
+   ```
+   Debe mostrar `CUDA Version: 11.2` o similar.
+
+## Descargar e Instalar cuDNN
+
+TensorFlow 2.10 requiere **cuDNN 8.1**.
+
+### Pasos de instalación:
+
+1. **Descargar cuDNN 8.1** desde NVIDIA:
+   - Ir a: https://developer.nvidia.com/cudnn
+   - Crear cuenta NVIDIA o iniciar sesión
+   - Descargar: **cuDNN 8.1.x for CUDA 11.x**
+   - Seleccionar la versión para Windows
+
+2. **Extraer y configurar cuDNN**:
+   - Extraer el archivo descargado
+   - Copiar los archivos de `bin/`, `lib/`, e `include/` a la carpeta de instalación de CUDA:
+     ```
+     C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2\
+     ```
+
+## Configuración de Variables de Entorno
+
+CUDA y cuDNN deben estar configurados en las variables de entorno del sistema.
+
+### Verificar las variables de entorno:
+
+1. Abre Símbolo del sistema y ejecuta:
+   ```bash
+   echo %CUDA_PATH%
+   ```
+   Debe mostrar: `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2`
+
+2. Verifica que el PATH incluya:
+   ```bash
+   echo %PATH%
+   ```
+   Debe incluir la ruta de CUDA y cuDNN.
 
 ## Verificación de TensorFlow
 
